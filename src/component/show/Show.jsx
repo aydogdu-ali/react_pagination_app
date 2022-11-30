@@ -1,10 +1,13 @@
 import React from "react";
 
+
+// datayı props olarak karşıladım.
 const Show = ({ image }) => {
 
 
  
   return (
+    // {/*gelen datayı kullanıcıya map yöntemi ile gösteriyorum*/}
     <div className=" container justify-content-center align-item-center mt-5 ">
       {image.map((item) => {
         return (
