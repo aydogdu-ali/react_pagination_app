@@ -1,60 +1,73 @@
+import { useState, useEffect } from "react";
 
-import { useState, useEffect  } from 'react';
+import ReactPaginate from "react-paginate";
 
-import ReactPaginate from 'react-paginate';
-
-const Pagination = ({image}) => {
-  console.log(image)
-   const [currentItems, setCurrentItems] = useState([])
-  const [pageCount, setPageCount] = useState(0)
+const Pagination = ({ image }) => {
+  console.log(image);
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 4
-  
-    useEffect(()=>{
-      const endOffset = itemOffset + itemsPerPage;
-      setCurrentItems(image.slice(itemOffset,endOffset));
-      console.log(image)
-      setPageCount(Math.ceil(image.length/itemsPerPage))
+  const itemsPerPage = 3;
 
-    },[itemOffset,itemsPerPage,image])
-    
+
+
+  useEffect(() => {
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(image.slice(itemOffset, endOffset));
+    console.log(image);
+    setPageCount(Math.ceil(image.length / itemsPerPage));
+   
+  }, [itemOffset, itemsPerPage, image]);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % image.length;
+    setItemOffset(newOffset);
+  };
+
+  return (
+    <>
+      <div className=" container ">
       
-    // Invoke when user click to request another page.
-    const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % image.length;
-            setItemOffset(newOffset);
-    };
-  
-    return (
-      <>
-      <h3>Sonuçlar</h3>
-              <div className="photo">
-          {currentItems.map(image =>{
-            return(
-              <div key={image.id}>
-              <h6 className="text-danger"> <span className="text-success">Categories List</span>:{image.tags}</h6>
-              <img  className = "" src={image.webformatURL} alt="img1" width="400px" />
+        {currentItems.map((image) => {
+         
+          return (
+            <div className="photo">
+              <div className="mt-3 text-center" key={image.id}>
+                <h6 className="text-danger">
+                  {" "}
+                  <span className="text-success">Categories List</span>:
+                  {image.tags}
+                </h6>
+                <img
+                  className="picture "
+                  src={image.webformatURL}
+                  alt="img1"
+                  width="400px"
+                  height="300px"
+                />
+              </div>
             </div>
-            )
-          })}
+          );
+        })}
 
-       </div>
+        <div className="d-flex align-items-center justify-content-center mt-3 px-1">
+          <ReactPaginate
+            nextLabel="next "
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            pageCount={pageCount}
+            previousLabel="  previous"
+            renderOnZeroPageCount={null}
+            activeLinkClassName="active"
+            containerClassName="pagination"
+            previousLinkClassName="pagination-prev"
+            nextLinkClassName="pagination-next"
+          />
+        </div>
+      </div>
+    </>
+  );
+};
 
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="next >"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          pageCount={pageCount}
-          previousLabel="< previous"
-          renderOnZeroPageCount={null}
-        />
-        </>
-    );
-  }
-
-
-
-export default Pagination
-
-
+export default Pagination;

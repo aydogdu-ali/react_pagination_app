@@ -2,37 +2,33 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* pagination Component */
+.photo{
+    margin-top: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.picture{
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.5);
+  object-fit:cover;
 }
 
-.App-header {
+.pagination {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1.2rem;
+  margin-bottom: 5rem;
+  color: red;
+  list-style: none;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.pagination-prev {
+  text-decoration: none;
+  padding-left: 0.5rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pagination-next {
+  text-decoration: none;
 }
