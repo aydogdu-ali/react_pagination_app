@@ -12,6 +12,9 @@
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.5);
   object-fit: cover;
 }
+.picture:hover {
+  transform: scale(0.98);
+}
 
 .pagination {
   background-color: #282c34;
@@ -23,8 +26,6 @@
   color: red;
   list-style: none;
   padding: 0.5rem 1.2rem;
-  
- 
 }
 
 .pagination-prev {
@@ -35,22 +36,19 @@
   text-decoration: none;
 }
 
-
-.sort{
+.sort {
   position: fixed;
   bottom: 28vh;
   left: 0;
   right: 0;
   text-align: center;
- display: flex;
- align-items: center;
- justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 
 /* search component*/
 
 input::placeholder {
   text-align: center;
-  
 }
