@@ -27,12 +27,12 @@ const Pagination = ({ image }) => {
 
   return (
     <>
-      <div className=" container ">
+      <div className=" container d-flex  gap-2">
       
         {currentItems.map((image) => {
          
           return (
-            <div className="photo">
+            <div className="photo ">
               <div className="mt-3 text-center" key={image.id}>
                 <h6 className="text-danger">
                   {" "}
@@ -51,11 +51,11 @@ const Pagination = ({ image }) => {
           );
         })}
 
-        <div className="d-flex align-items-center justify-content-center mt-3 px-1">
+        <div className=" sort">
           <ReactPaginate
             nextLabel="next "
             onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
+            // pageRangeDisplayed={3}
             pageCount={pageCount}
             previousLabel="  previous"
             renderOnZeroPageCount={null}

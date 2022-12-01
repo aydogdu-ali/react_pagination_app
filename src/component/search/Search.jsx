@@ -42,7 +42,7 @@ const Search = () => {
 
   const handleClick = () =>{
     if(search==="") {
-      alert("Please enter a something")
+      alert("Lüften aranacak kelimeyi girin")
       
     }
     else {getPicture()
@@ -62,7 +62,7 @@ const Search = () => {
               onChange={handleSearch}
               value={search}
               required
-              placeholder="lütfen aramak istediğiniz resmi yazınız "
+              placeholder="lütfen aradığınız fotoğraf ile ilgili kelimeyi giriniz "
             />
             <div onClick={handleClick} role ="button">
               <SearchIcon   /> </div>
@@ -70,7 +70,10 @@ const Search = () => {
           </div>
         </form>
       </div>
-      <p className="mt-2">{text &&  <h3>Sonuçlar</h3> } </p>
+      <p className="mt-2">{text &&  <h3>Sonuçlar</h3> } 
+      
+      </p>
+     
       
       <Show   image={image}  />
       
