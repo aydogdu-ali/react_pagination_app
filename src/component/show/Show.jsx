@@ -8,7 +8,7 @@ const Show = ({ image}) => {
   
   return (
    <>
-       <div className="container box-shadow">
+       <div className="container">
        <Pagination   image = {image} />
          </div> 
     

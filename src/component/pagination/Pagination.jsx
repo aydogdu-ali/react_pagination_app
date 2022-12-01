@@ -55,7 +55,6 @@ const Pagination = ({ image }) => {
           <ReactPaginate
             nextLabel="next "
             onPageChange={handlePageClick}
-            // pageRangeDisplayed={3}
             pageCount={pageCount}
             previousLabel="  previous"
             renderOnZeroPageCount={null}
