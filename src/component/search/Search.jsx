@@ -5,12 +5,13 @@ import Show from "../show/Show";
 
 
 const Search = () => {
-  /*input ve api den gelen datayı statelere aktarmak için state tanımlamaları*/
+  /*input ve api den gelen datayı statelere aktarmak için state tanımlamalarını yaptım*/
   const [search, setSearch] = useState("");
   const [image, setImage] = useState([]);
+  /*Sonuçlar başlığının ekrana yazılması için state tanımladım*/
   const [text, setText] = useState(false)
 
-  /*Kullanıcıdan  input ile veri alma ve bunu statete tutma fonksiyonu*/
+  /*Kullanıcıdan  input ile veri alma ve bunu statete aktarma fonksiyonu*/
   const handleSearch = (e) => {
      setSearch(e.target.value.toLowerCase()); 
       console.log(search);
@@ -27,19 +28,15 @@ const Search = () => {
     console.log(image);
   };
 
-  /* Kullanıcı enter a basınca isteği getirme*/
+  /* Kullanıcı enter a basınca isteği getirme form kullanıldığı için default davranışı*/
   const handleSubmit = (e)=> {
-    if(e.target.value ===""){
-      e.preventDefault()
-      
-    }
     e.preventDefault()
         getPicture()
       setSearch("") 
    
     
   }
-
+/* Kullanıcı icon a tıklayınca input boş ise verilen uyarı fonksiyonu*/
   const handleClick = () =>{
     if(search==="") {
       alert("Lüften aranacak kelimeyi girin")
@@ -73,9 +70,8 @@ const Search = () => {
       <p className="mt-2">{text &&  <h3>Sonuçlar</h3> } 
       
       </p>
-     
-      
-      <Show   image={image}  />
+     {/*çektiğimiz veriyi Show componentine gönderdim*/}
+      <Show   image={image}   />
       
     </>
   );

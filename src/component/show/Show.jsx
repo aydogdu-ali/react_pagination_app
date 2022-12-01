@@ -9,7 +9,8 @@ const Show = ({ image}) => {
   return (
    <>
        <div className="container">
-       <Pagination   image = {image} />
+        {/*gelen datayı pagination componentine gönderdim.*/}
+       <Pagination image = {image} />
          </div> 
     
     </>
