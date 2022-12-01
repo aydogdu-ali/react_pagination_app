@@ -3,6 +3,7 @@ import SearchIcon from "../searchicon/SearchIcon";
 import { useState } from "react";
 import Show from "../show/Show";
 
+
 const Search = () => {
   /*input ve api den gelen datayı statelere aktarmak için state tanımlamaları*/
   const [search, setSearch] = useState("");
@@ -67,7 +68,8 @@ const Search = () => {
           </div>
         </form>
       </div>
-      <Show   image={image} />
+      <Show   image={image}  />
+      
     </>
   );
 };
