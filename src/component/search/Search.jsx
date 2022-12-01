@@ -8,6 +8,7 @@ const Search = () => {
   /*input ve api den gelen datayı statelere aktarmak için state tanımlamaları*/
   const [search, setSearch] = useState("");
   const [image, setImage] = useState([]);
+  const [text, setText] = useState(false)
 
   /*Kullanıcıdan  input ile veri alma ve bunu statete tutma fonksiyonu*/
   const handleSearch = (e) => {
@@ -22,6 +23,7 @@ const Search = () => {
     fetch(`https://pixabay.com/api/?key=31725179-e9547203f59a4095ebc0c6c08&q=${search}&image_type=photo`)
       .then((respon) => respon.json())
       .then((data) => setImage(data.hits));
+      setText(true)
     console.log(image);
   };
 
@@ -60,7 +62,7 @@ const Search = () => {
               onChange={handleSearch}
               value={search}
               required
-              placeholder="please enter a search word "
+              placeholder="lütfen aramak istediğiniz resmi yazınız "
             />
             <div onClick={handleClick} role ="button">
               <SearchIcon   /> </div>
@@ -68,6 +70,8 @@ const Search = () => {
           </div>
         </form>
       </div>
+      <p className="mt-2">{text &&  <h3>Sonuçlar</h3> } </p>
+      
       <Show   image={image}  />
       
     </>

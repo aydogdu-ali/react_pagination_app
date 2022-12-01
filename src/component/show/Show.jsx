@@ -5,13 +5,13 @@ import Pagination from "../pagination/Pagination";
 // datayı props olarak karşıladım.
 const Show = ({ image}) => {
   console.log(image)
- 
-
- 
+  
   return (
    <>
-        
-    <Pagination  image = {image} />
+       <div className="container box-shadow">
+       <Pagination   image = {image} />
+         </div> 
+    
     </>
    
   );
