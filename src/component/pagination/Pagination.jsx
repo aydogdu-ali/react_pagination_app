@@ -37,7 +37,7 @@ const Pagination = ({ image }) => {
       <div className=" container d-flex  gap-2">
       
         {currentItems.map((image) => {
-         {/*gelen fotoğrafları kullanıcıya gösterdim. */}
+        /* Kullanıcı enter a basınca isteği getirme form kullanıldığı için default davranışı*/
           return (
             <div className="photo ">
               <div className="mt-3 text-center" key={image.id}>
